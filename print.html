@@ -1,0 +1,705 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The well-grounded Rubyist</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./theme/catppuccin.css">
+        <link rel="stylesheet" href="./theme/catppuccin-highlight.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">RUBY FOUNDATIONS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Bootstrapping your Ruby literacy</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Objects, methods, and local variables</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Organizing objects with classes</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Modules and program organization</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> The default object (self), scope, and visibility</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Control-flow techniques</div></li><li class="chapter-item expanded affix "><li class="part-title">BUILT-IN CLASSES AND MODULES</li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Built-in essentials</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Strings, symbols, and other scalar objects</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Collection and container objects</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">9.1.</strong> Arrays and hashes in comparison</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.2.</strong> Collection handling with arrays</div></li><li class="chapter-item expanded "><a href="built-in_classes_and_modules/collection_and_container_objects/hashes.html"><strong aria-hidden="true">9.3.</strong> Hashes</a></li><li class="chapter-item expanded "><a href="built-in_classes_and_modules/collection_and_container_objects/ranges.html"><strong aria-hidden="true">9.4.</strong> Ranges</a></li><li class="chapter-item expanded "><a href="built-in_classes_and_modules/collection_and_container_objects/sets.html"><strong aria-hidden="true">9.5.</strong> Sets</a></li></ol></li><li class="chapter-item expanded "><a href="built-in_classes_and_modules/collections_central_enumerable_and_enumerator/introduction.html"><strong aria-hidden="true">10.</strong> Collections central: Enumerable and Enumerator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in_classes_and_modules/collections_central_enumerable_and_enumerator/gaining_enumerability_through_each.html"><strong aria-hidden="true">10.1.</strong> Gaining enumerability through each</a></li><li class="chapter-item expanded "><a href="built-in_classes_and_modules/collections_central_enumerable_and_enumerator/enumerable_boolean_queries.html"><strong aria-hidden="true">10.2.</strong> Enumerable Boolean queries</a></li><li class="chapter-item expanded "><a href="built-in_classes_and_modules/collections_central_enumerable_and_enumerator/enumerable_searching_and_selecting.html"><strong aria-hidden="true">10.3.</strong> Enumerable searching and selecting</a></li><li class="chapter-item expanded "><a href="built-in_classes_and_modules/collections_central_enumerable_and_enumerator/element-wise_enumerable_operations.html"><strong aria-hidden="true">10.4.</strong> Element-wise enumerable operations</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="latte">Latte</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="frappe">Frappé</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="macchiato">Macchiato</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mocha">Mocha</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The well-grounded Rubyist</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="hashes"><a class="header" href="#hashes">Hashes</a></h1>
+<h2 id="hash-transformations"><a class="header" href="#hash-transformations">Hash transformations</a></h2>
+<ul>
+<li>
+<h2 id="select"><a class="header" href="#select">#Select</a></h2>
+</li>
+</ul>
+<p>Key/value pairs will be passed in succession to the code block you provide. Any pair for which the block returns a true value will be included in the result hash: </p>
+<pre><code class="language-Ruby">h = Hash[1,2,3,4,5,6]
+# {1=&gt;2, 3=&gt;4, 5=&gt;6}
+h.select {|k,v| k &gt; 1 }
+# {3=&gt;4, 5=&gt;6}
+</code></pre>
+<ul>
+<li>
+<h2 id="reject"><a class="header" href="#reject">#reject</a></h2>
+</li>
+</ul>
+<p>key/value pairs for which the block returns true are excluded from the result hash</p>
+<pre><code class="language-Ruby">h.reject {|k,v| k &gt; 1 }
+# {1=&gt;2}
+</code></pre>
+<ul>
+<li>
+<h2 id="compact"><a class="header" href="#compact">#compact</a></h2>
+</li>
+</ul>
+<p>eliminating any keys containing nil values</p>
+<pre><code class="language-Ruby">{ street: &quot;127th Street&quot;, apt: nil, borough: &quot;Manhattan&quot; }.compact
+# {:street=&gt;&quot;127th Street&quot;, :borough=&gt;&quot;Manhattan&quot;} 
+</code></pre>
+<ul>
+<li>
+<h2 id="invert"><a class="header" href="#invert">#invert</a></h2>
+</li>
+</ul>
+<p>flips the keys and the values. Values become keys, and keys become values</p>
+<pre><code class="language-Ruby">&gt;&gt; h = { 1 =&gt; &quot;one&quot;, 2 =&gt; &quot;two&quot; }
+=&gt; {1=&gt;&quot;one&quot;, 2=&gt;&quot;two&quot;}
+&gt;&gt; h.invert
+=&gt; {&quot;two&quot;=&gt;2, &quot;one&quot;=&gt;1}
+</code></pre>
+<ul>
+<li>
+<h2 id="clear"><a class="header" href="#clear">#clear</a></h2>
+</li>
+</ul>
+<p>empties the hash</p>
+<pre><code class="language-Ruby">&gt;&gt; {1 =&gt; &quot;one&quot;, 2 =&gt; &quot;two&quot; }.clear
+=&gt; {}
+</code></pre>
+<p>This is an in-place operation: the empty hash is the same hash (the same object) as the</p>
+<ul>
+<li>
+<h2 id="replace"><a class="header" href="#replace">#replace</a></h2>
+</li>
+</ul>
+<p>Like strings and arrays, hashes have a replace method</p>
+<pre><code class="language-Ruby">&gt;&gt; { 1 =&gt; &quot;one&quot;, 2 =&gt; &quot;two&quot; }.replace({ 10 =&gt; &quot;ten&quot;, 20 =&gt; &quot;twenty&quot;})
+=&gt; {10 =&gt; &quot;ten&quot;, 20 =&gt; &quot;twenty&quot;}
+</code></pre>
+<p>=&gt; {10 =&gt; &quot;ten&quot;, 20 =&gt; &quot;twenty&quot;}
+This is also an in-place operation, as the name replace implies. </p>
+<h2 id="hash-querying"><a class="header" href="#hash-querying">Hash querying</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Method name</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>h.has_key?(1)</td><td>True if h has the key 1</td></tr>
+<tr><td>h.include?(1)</td><td>Synonym for has_key?</td></tr>
+<tr><td>h.key?(1)</td><td>Synonym for has_key?</td></tr>
+<tr><td>h.member?(1)</td><td>Synonym for has_key?</td></tr>
+<tr><td>h.has_value?(&quot;three&quot;)</td><td>True if any value in h is &quot;three&quot;</td></tr>
+<tr><td>h.value?(&quot;three&quot;)</td><td>Synonym for has_value?</td></tr>
+<tr><td>h.empty?</td><td>True if h has no key/value pairs</td></tr>
+<tr><td>h.size</td><td>Number of key/value pairs in h</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>Table 9.3 Common hash query methods and their meanings</p>
+</blockquote>
+<h2 id="hashes-as-final-method-arguments"><a class="header" href="#hashes-as-final-method-arguments">Hashes as final method arguments</a></h2>
+<p>A detour back to argument syntax: named (keyword) arguments
+Using named arguments saves you the trouble of “unwrapping hashes in your methods.
+And of course, you can combine keyword and nonkeyword arguments:</p>
+<pre><code class="language-Ruby">&gt;&gt; def m(x, y, *z, a: 1, b:, **c, &amp;block)
+&gt;&gt;   p x,y,z,a,b,c
+&gt;&gt; end
+=&gt; :m
+&gt;&gt; m(1,2,3,4,5,b:10,p:20,q:30)
+1
+2
+[3, 4, 5]
+1
+10
+{:p=&gt;20, :q=&gt;30}
+=&gt; [1, 2, [3, 4, 5], 1, 10, {:p=&gt;20, :q=&gt;30}]
+</code></pre>
+<p>Here the method <code>m</code>:</p>
+<ul>
+<li>Takes two <strong>required</strong> positional arguments (<code>x</code> and <code>y</code>, bound to <code>1</code> and <code>2</code>)</li>
+<li>Has a <em>“sponge”</em> parameter (<code>z</code>) that takes care of <strong>extra</strong> arguments following the positional ones (<code>3</code>, <code>4</code>, <code>5</code>)</li>
+<li>Has one <em>optional</em> and one <strong>required</strong> keyword argument (<code>a</code> and <code>b</code>, respectively, bound to <code>1</code> and <code>10</code>)</li>
+<li>Has a keyword <em>“sponge”</em> (<code>c</code>) to absorb <strong>unknown</strong> named arguments (the <code>p</code> and <code>q</code> hash)</li>
+<li>Has a <em>variable</em> for binding to the code block, if any (<em>block</em>)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ranges"><a class="header" href="#ranges">Ranges</a></h1>
+<h2 id="creating-a-range"><a class="header" href="#creating-a-range">Creating a range</a></h2>
+<pre><code class="language-Ruby">&gt;&gt; r = Range.new(1,100) # Range Object
+=&gt; 1..100
+
+&gt;&gt; r = 1..100 # Literal syntax
+=&gt; 1..100
+
+&gt;&gt; Range.new(1,100,true) # Exclusive Range Object `true`
+=&gt; 1...100
+
+&gt;&gt; r = 1...100 # Literal syntax exclusive range (...)
+=&gt; 1...100
+</code></pre>
+<h2 id="range-inclusion-logic"><a class="header" href="#range-inclusion-logic">Range-inclusion logic</a></h2>
+<ul>
+<li>
+<h2 id="begin--end--exclude_end"><a class="header" href="#begin--end--exclude_end">#begin | #end | #exclude_end</a></h2>
+</li>
+</ul>
+<pre><code class="language-Ruby">&gt;&gt; r = 1..10
+=&gt; 1..10
+&gt;&gt; r.begin
+=&gt; 1
+&gt;&gt; r.end
+=&gt; 10
+&gt;&gt; r.exclude_end?
+=&gt; false
+</code></pre>
+<ul>
+<li>
+<h2 id="cover"><a class="header" href="#cover">#cover?</a></h2>
+</li>
+</ul>
+<pre><code class="language-Ruby">&gt;&gt; r = &quot;a&quot;..&quot;z&quot;
+=&gt; &quot;a&quot;..&quot;z&quot;
+&gt;&gt; r.cover?(&quot;a&quot;) # true: &quot;a&quot; &gt;= &quot;a&quot; and &quot;a&quot; &lt;= &quot;z&quot;
+=&gt; true
+&gt;&gt; r.cover?(&quot;abc&quot;) # true: &quot;abc&quot; &gt;= &quot;a&quot; and &quot;abc&quot; &lt;= &quot;z&quot;
+=&gt; true
+&gt;&gt; r.cover?(&quot;A&quot;) # false: &quot;A&quot; &lt; &quot;a&quot;
+=&gt; false
+&gt;&gt; r.cover?([])
+=&gt; false
+</code></pre>
+<p>It’s meaningless to ask whether an array is greater than the string &quot;a&quot;. If you try such a
+comparison on its own, you’ll get a fatal error. Fortunately, ranges take a more conservative approach and tell you that the item isn’t covered by the range.</p>
+<ul>
+<li>
+<h3 id="include"><a class="header" href="#include">#include?</a></h3>
+</li>
+</ul>
+<p>test treats the range as a kind of crypto-array—that is, a collection of values.</p>
+<p>The <code>&quot;a&quot;..&quot;z&quot;</code> range, for example, is considered to include (as measured by <code>#include?</code>) only the <strong>26</strong> values that lie <em>inclusively</em> between <code>&quot;a&quot;</code> and <code>&quot;z&quot;</code>. </p>
+<p>Therefore, <code>include?</code> produces results that differ from those of <code>#cover?</code></p>
+<pre><code class="language-Ruby">&gt;&gt; r.include?(&quot;a&quot;)
+=&gt; true
+&gt;&gt; r.include?(&quot;abc&quot;)
+=&gt; false
+</code></pre>
+<p>In cases where the <em>range</em> can’t be interpreted as a <strong>finite collection</strong>, such as a range of <em>floats</em>, the `#include?* method falls back on <strong>numerical order and comparison</strong></p>
+<pre><code class="language-Ruby">&gt;&gt; r = 1.0..2.0
+=&gt; 1.0..2.0
+&gt;&gt; r.include?(1.5)
+</code></pre>
+<blockquote>
+<p>Are there backward ranges?</p>
+</blockquote>
+<p>The anticlimactic answer to the question of backward ranges is this: <strong>yes</strong> and <strong>no</strong>. You can create a backward range, but it won’t do what you probably want it to:</p>
+<pre><code class="language-Ruby">&gt;&gt; r = 100...1
+=&gt; 100...1
+&gt;&gt; r.include?(50)
+=&gt; false
+</code></pre>
+<blockquote>
+<p>The range happily performs its usual inclusion test for you. The test calculates
+whether the candidate for inclusion is greater than the start point of the range and less than the end point. Because 50 is neither greater than 100 nor less than 1, the test fails. And it fails silently; this is a logic error, not a fatal syntax or runtime error. </p>
+</blockquote>
+<p>Backward ranges do show up in one particular set of use cases: as index arguments to strings and arrays. They typically take the form of a positive start point and a negative end point, with the negative end point counting in from the right</p>
+<pre><code class="language-Ruby">&gt;&gt; &quot;This is a sample string&quot;[10..-5]
+=&gt; &quot;sample st&quot;
+&gt;&gt; ['a','b','c','d'][0..-2]
+=&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+# You can even use an exclusive backward range:
+&gt;&gt; ['a','b','c','d'][0...-2]
+=&gt; [&quot;a&quot;, &quot;b&quot;]
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sets"><a class="header" href="#sets">Sets</a></h1>
+<p>It' satndard library class not a Ruby core class</p>
+<pre><code class="language-Ruby">require 'set'
+</code></pre>
+<blockquote>
+<p>I've <em><strong>Ruby</strong></em> <strong><code>3.2.0</code></strong> and it's in the <em><strong>core lib</strong></em> 🙀</p>
+</blockquote>
+<p>A <em>set</em> is a <strong>unique collection of objects</strong>.</p>
+<p>The objects can be anything—<em>strings</em>, <em>integers</em>, <em>arrays</em>, <em>other sets</em>—but no object can occur <strong>more than once</strong> in the set.</p>
+<p><strong>Uniqueness</strong> is also enforced at the commonsense content level: if the set contains the string <code>&quot;New York&quot;</code>, you can’t add the string <code>&quot;New York&quot;</code> to it, even though the two strings may technically be different objects. The same is true of arrays with equivalent content. </p>
+<blockquote>
+<p><strong>NOTE</strong>
+Internally, sets use a <em>hash</em> to enforce the <strong>uniqueness</strong> of their contents.
+When an element is added to a set, the internal hash for that set gets a new key. Therefore, any two objects that would count as duplicates if used as hash keys can't occur together in a set</p>
+</blockquote>
+<h2 id="set-creation"><a class="header" href="#set-creation">Set creation</a></h2>
+<pre><code class="language-Ruby">&gt;&gt; new_england = [&quot;Connecticut&quot;, &quot;Maine&quot;, &quot;Massachusetts&quot;,
+&quot;New Hampshire&quot;, &quot;Rhode Island&quot;, &quot;Vermont&quot;]
+=&gt; [&quot;Connecticut&quot;, &quot;Maine&quot;, &quot;Massachusetts&quot;,
+    &quot;New Hampshire&quot;,&quot;Rhode Island&quot;, &quot;Vermont&quot;]
+&gt;&gt; state_set = Set.new(new_england)
+=&gt; #&lt;Set: {&quot;Connecticut&quot;, &quot;Maine&quot;, &quot;Massachusetts&quot;,
+   &quot;New Hampshire&quot;, &quot;Rhode Island&quot;, &quot;Vermont&quot;}&gt;
+</code></pre>
+<pre><code class="language-Ruby">&gt;&gt; names = [&quot;David&quot;, &quot;Yukihiro&quot;, &quot;Chad&quot;, &quot;Amy&quot;]
+=&gt; [&quot;David&quot;, &quot;Yukihiro&quot;, &quot;Chad&quot;, &quot;Amy&quot;]
+&gt;&gt; name_set = Set.new(names) {|name| name.upcase }
+=&gt; #&lt;Set: {&quot;DAVID&quot;, &quot;YUKIHIRO&quot;, &quot;CHAD&quot;, &quot;AMY&quot;}&gt;
+</code></pre>
+<h2 id="manipulating-set-elements"><a class="header" href="#manipulating-set-elements">Manipulating set elements</a></h2>
+<ul>
+<li>
+<h2 id="-add--add-return-nil-if-the-set-unchanged-"><a class="header" href="#-add--add-return-nil-if-the-set-unchanged-">#&lt;&lt; || #add || (#add? <em>return <code>nil</code> if the set unchanged</em> )</a></h2>
+</li>
+</ul>
+<pre><code class="language-Ruby">&gt;&gt; tri_state = Set.new([&quot;New Jersey&quot;, &quot;New York&quot;])
+=&gt; #&lt;Set: {&quot;New Jersey&quot;, &quot;New York&quot;}&gt;
+&gt;&gt; tri_state &lt;&lt; &quot;Connecticut&quot;
+=&gt; #&lt;Set: {&quot;New Jersey&quot;, &quot;New York&quot;, &quot;Connecticut&quot;}&gt;
+&gt; tri_state &lt;&lt; &quot;Connecticut&quot; # Second one, Set unchanged!
+=&gt; #&lt;Set: {&quot;New Jersey&quot;, &quot;New York&quot;, &quot;Connecticut&quot;}&gt;
+</code></pre>
+<ul>
+<li>
+<h2 id="delete"><a class="header" href="#delete">#delete</a></h2>
+</li>
+</ul>
+<pre><code class="language-Ruby">&gt;&gt; tri_state &lt;&lt; &quot;Pennsylvania&quot;
+=&gt; #&lt;Set: {&quot;New Jersey&quot;, &quot;New York&quot;, &quot;Connecticut&quot;, &quot;Pennsylvania&quot;}&gt;
+&gt;&gt; tri_state.delete(&quot;Connecticut&quot;)
+=&gt; #&lt;Set: {&quot;New Jersey&quot;, &quot;New York&quot;, &quot;Pennsylvania&quot;}&gt;
+</code></pre>
+<h2 id="set-intersection-union-and-difference"><a class="header" href="#set-intersection-union-and-difference">SET INTERSECTION, UNION, AND DIFFERENCE</a></h2>
+<pre><code class="language-Ruby">asia = Set.new(%i[china japan thailand uae ksa])
+=&gt; #&lt;Set: {:china, :japan, :thailand, :uae, :ksa}&gt;
+middle_east = Set.new(%i[ksa uae egypt])
+=&gt; #&lt;Set: {:ksa, :uae, :egypt}&gt;
+</code></pre>
+<blockquote>
+<p>Each of these methods returns a new set consisting of the original set</p>
+</blockquote>
+<ul>
+<li><code>#intersection</code>, alias: <code>#&amp;</code></li>
+</ul>
+<pre><code class="language-Ruby">&gt; middle_east &amp; asia # middle_east.intersection(asia)
+=&gt; #&lt;Set: {:ksa, :uae}&gt;
+</code></pre>
+<ul>
+<li><code>#union</code>, alias: <code>#+</code> and <code>#|</code></li>
+</ul>
+<pre><code class="language-Ruby">&gt; middle_east + asia # middle_east.union(asia) || middle_east | asia
+=&gt; #&lt;Set: {:ksa, :uae, :egypt, :qatar, :china, :japan, :thailand}&gt;
+</code></pre>
+<ul>
+<li><code>#difference</code>, alias: <code>#-</code></li>
+</ul>
+<pre><code class="language-Ruby">&gt; middle_east - asia # middle_east.difference(asia)
+=&gt; #&lt;Set: {:egypt, :qatar}&gt;
+</code></pre>
+<ul>
+<li><code>#^</code>, an exclusive-or operator</li>
+</ul>
+<p>take the exclusive union between a set and an enumerable—that is, a set consisting of all elements that occur</p>
+<pre><code class="language-Ruby">&gt; middle_east ^ asia
+=&gt; #&lt;Set: {:china, :japan, :thailand, :egypt, :qatar}&gt;
+</code></pre>
+<h2 id="merging-a-collection-into-another-set"><a class="header" href="#merging-a-collection-into-another-set">MERGING A COLLECTION INTO ANOTHER SET</a></h2>
+<ul>
+<li><code>#merge</code></li>
+</ul>
+<pre><code class="language-Ruby">&gt; middle_east.merge(asia)
+=&gt; #&lt;Set: {:ksa, :uae, :egypt, :qatar, :china, :japan, :thailand}&gt;
+</code></pre>
+<pre><code class="language-Ruby">&gt;&gt; europe = { france: :paris, italy: :roma }
+=&gt; { france: :paris, italy: :roma }
+</code></pre>
+<pre><code class="language-Ruby">&gt;&gt; middle_east.merge(europe.keys)
+=&gt; #&lt;Set: {:ksa, :uae, :egypt, :qatar, :china, :japan, :thailand, :france, :italy}&gt;
+</code></pre>
+<blockquote>
+<p>Merging a <strong><code>hash</code></strong> into a <strong><code>set</code></strong> results in the addition of <strong>two-element</strong>, <code>key/value</code> <em>arrays</em> to
+the <em><code>set</code></em></p>
+</blockquote>
+<h2 id="subsets-and-supersets"><a class="header" href="#subsets-and-supersets">Subsets and supersets</a></h2>
+<pre><code class="language-Ruby">&gt; middle_east = Set.new(%i[uae ksa])
+=&gt; #&lt;Set: {:uae, :ksa}&gt;
+asia = Set.new(%i[china japan thailand uae ksa])
+=&gt; #&lt;Set: {:china, :japan, :thailand, :uae, :ksa}&gt;
+</code></pre>
+<pre><code class="language-Ruby">&gt; asia.superset?(middle_east)
+=&gt; true
+&gt; middle_east.subset?(asia)
+=&gt; true
+</code></pre>
+<h2 id="the-proper-concept"><a class="header" href="#the-proper-concept">The <em>&quot;proper&quot;</em> concept</a></h2>
+<p>is a way of filtering out the case where a set is a superset or subset of itself—because all sets are both.</p>
+<ul>
+<li><code>#proper_subset?</code> </li>
+</ul>
+<blockquote>
+<p>A proper <code>subset</code> is a <em><code>subset</code></em> that’s smaller than the <em>parent</em> <strong><code>set</code></strong> by at least <strong>one element</strong>. If the two <em><code>sets</code></em> are <strong>equal</strong>, they’re <strong><code>subsets</code></strong> of each other but not <strong>proper <code>subsets</code></strong></p>
+</blockquote>
+<ul>
+<li><code>#proper_superset?</code></li>
+</ul>
+<blockquote>
+<p>A proper <code>superset</code> of a <em><code>set</code></em> is a <em>second</em> <strong><code>set</code></strong> that contains all the elements of the first <em><code>set</code></em> plus at least <strong>one element not present</strong> in the first <em><code>set</code></em></p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="collections-central-enumerable-and-enumerator"><a class="header" href="#collections-central-enumerable-and-enumerator">Collections central: Enumerable and Enumerator</a></h1>
+<p><em>Collection</em> objects in Ruby typically <strong>include the Enumerable module</strong></p>
+<p>The <em>class</em> has to <strong>define an instance method called each</strong></p>
+<p>Each <em>class</em> has its own <code>each</code> methods too</p>
+<pre><code class="language-Ruby">&gt;&gt; Enumerable.instance_methods(false).sort
+=&gt; [:all?, :any?, :chunk, :chunk_while, :collect, :collect_concat, :count,
+:cycle, :detect, :drop, :drop_while, :each_cons, :each_entry, 
+:each_slice, :each_with_index, :each_with_object, :entries, :find, 
+:find_all, :find_index, :first, :flat_map, :grep, :grep_v, :group_by, 
+:include?, :inject, :lazy, :map, :max, :max_by, :member?, :min, :min_by, 
+:minmax, :minmax_by, :none?, :one?, :partition, :reduce, :reject, 
+:reverse_each, :select, :slice_after, :slice_before, :slice_when, :sort, 
+:sort_by, :sum, :take, :take_while, :to_a, :to_h, :uniq, :zip]
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gaining-enumerability-through-each"><a class="header" href="#gaining-enumerability-through-each">Gaining enumerability through each</a></h1>
+<pre><code class="language-Ruby">class Rainbow
+  include Enumerable
+  def each
+    yield &quot;red&quot;
+    yield &quot;orange&quot;
+    yield &quot;yellow&quot;
+    yield &quot;green&quot;
+    yield &quot;blue&quot;
+    yield &quot;indigo&quot;
+    yield &quot;violet&quot;
+  end
+end
+</code></pre>
+<pre><code class="language-Ruby">r = Rainbow.new
+r.each do |color|
+  puts &quot;Next color: #{color}&quot;
+end
+
+# Next color: red
+# Next color: orange
+# Next color: yellow
+# Next color: green
+# Next color: blue
+# Next color: indigo
+# Next color: violet
+</code></pre>
+<pre><code class="language-Ruby">r = Rainbow.new
+y_color = r.find {|color| color.start_with?('y') }
+puts y_color
+# 'yellow'
+</code></pre>
+<p>find works by calling <code>each</code>. <code>each</code> <em><code>yields</code></em> <em>items</em>, and find uses the <em>code <code>block</code></em> we’v given it to test those items one at a time for a match. When <code>each</code> gets around to <em><code>yielding</code></em> <em>yellow</em>, <code>find</code> runs it through the <code>block</code>, and it passes the test. The variable <code>y</code>_color therefore receives the value <em><code>yellow</code></em>.</p>
+<blockquote>
+<p>Notice that there’s <strong>no need to define</strong> <code>find</code>. It’s part of <strong><code>Enumerable</code></strong>, which we’ve <em><code>mixed</code></em> in. It knows what to do and how to use each to do it.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="enumerable-boolean-queries"><a class="header" href="#enumerable-boolean-queries">Enumerable Boolean queries</a></h1>
+<h2 id="array--set"><a class="header" href="#array--set">Array || Set</a></h2>
+<pre><code class="language-Ruby"> Does the array include Louisiana?
+&gt;&gt; states.include?(&quot;Louisiana&quot;)
+=&gt; true
+# Do all states include a space?
+&gt;&gt; states.all? {|state| state =~ / / }
+=&gt; false
+# Does any state include a space?
+&gt;&gt; states.any? {|state| state =~ / / }
+=&gt; true
+# Is there one, and only one, state with &quot;West&quot; in its name?
+&gt;&gt; states.one? {|state| state =~ /West/ }
+=&gt; true
+# Are there no states with &quot;East&quot; in their names?
+&gt;&gt; states.none? {|state| state =~ /East/ }
+=&gt; true
+</code></pre>
+<h2 id="hash"><a class="header" href="#hash">Hash</a></h2>
+<pre><code class="language-Ruby"># Does the hash include Louisiana?
+&gt;&gt; states.include?(&quot;Louisiana&quot;) # #include? consults hash's key
+=&gt; true
+# Do all states include a space?
+&gt;&gt; states.all? {|state, abbr| state =~ / / }
+=&gt; false
+# Is there one, and only one, state with &quot;West&quot; in its name?
+&gt;&gt; states.one? {|state, abbr| state =~ /West/ }
+=&gt; true
+</code></pre>
+<h2 id="range"><a class="header" href="#range">Range</a></h2>
+<pre><code class="language-Ruby">&gt;&gt; r = Range.new(1, 10)
+=&gt; 1..10
+&gt;&gt; r.one? {|n| n == 5 }
+=&gt; true
+&gt;&gt; r.none? {|n| n % 2 == 0 }
+=&gt; false
+
+# The fact that the error is TypeError rather than NoMethodError
+# indicates that the each method exists but can’t function on this range of Flaot.)
+&gt;&gt; r = Range.new(1.0, 10.0)
+=&gt; 1.0..10.0
+&gt;&gt; r.one? {|n| n == 5 } # TypeError (can't iterate from Float) 
+
+# You can use a float as a range’s end point and still get enumeration
+# as long as the start point is an integer
+&gt;&gt; r = Range.new(1, 10.3)
+=&gt; 1..10.3
+&gt;&gt; r.any? {|n| n &gt; 5 }
+=&gt; true
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="enumerable-searching-and-selecting"><a class="header" href="#enumerable-searching-and-selecting">Enumerable searching and selecting</a></h1>
+<h2 id="getting-the-first-match-with-find"><a class="header" href="#getting-the-first-match-with-find">Getting the first match with find</a></h2>
+<h3 id="find--detect"><a class="header" href="#find--detect"><code>#find</code> || <code>#detect</code></a></h3>
+<p>Locates the <strong>first</strong> element in an array for which the <em>code block</em></p>
+<pre><code class="language-Ruby">&gt;&gt; [1,2,3,4,5,6,7,8,9,10].find {|n| n &gt; 5 }
+=&gt; 6
+</code></pre>
+<h2 id="getting-all-matches-with-find_all-aka-select-and-reject"><a class="header" href="#getting-all-matches-with-find_all-aka-select-and-reject">Getting all matches with <code>#find_all</code> (a.k.a. <code>#select</code>) and <code>#reject</code></a></h2>
+<h3 id="find_all-select"><a class="header" href="#find_all-select"><code>#find_all</code>| <code>#select</code></a></h3>
+<p>Although find always returns one object, always returns an array</p>
+<p>If no matching elements are found, returns an empty collection object.</p>
+<p>If you select on a <em><strong><code>hash</code></strong></em> or <em><strong><code>set</code></strong></em>, you get back a <em><strong><code>hash</code></strong></em> or <em><strong><code>set</code></strong></em>.
+This is enhanced behavior that isn’t strictly part of <em><code>Enumerable</code></em></p>
+<pre><code class="language-Ruby">&gt;&gt; a = [1,2,3,4,5,6,7,8,9,10]
+=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+&gt;&gt; a.find_all {|item| item &gt; 5 }
+=&gt; [6, 7, 8, 9, 10]
+&gt;&gt; a.select {|item| item &gt; 100 }
+=&gt; []
+</code></pre>
+<blockquote>
+<p><em>Arrays</em>, <em>hashes</em>, <em>and</em> sets have a <strong>bang</strong> version, <strong><code>#select!</code></strong>, that reduces the collection permanently to only those elements that passed the selection test. There’s no <strong><code>#find_all!</code></strong> synonym; you have to use <strong><code>#select!</code></strong>.</p>
+</blockquote>
+<h3 id="reject-1"><a class="header" href="#reject-1"><code>#reject</code></a></h3>
+<p>The negative equivalent of <code>#find_all</code></p>
+<pre><code class="language-Ruby">&gt;&gt; a.reject {|item| item &gt; 5 }
+=&gt; [1, 2, 3, 4, 5]
+</code></pre>
+<p>There's also <strong><code>#reject!</code></strong></p>
+<h2 id="selecting-on-threequal-matches-with-grep"><a class="header" href="#selecting-on-threequal-matches-with-grep">Selecting on threequal matches with grep</a></h2>
+<pre><code class="language-Ruby">&gt;&gt; colors = %w(red orange yellow green blue indigo violet)
+=&gt; [&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;indigo&quot;, &quot;violet&quot;]
+&gt;&gt; colors.grep(/o/)
+=&gt; [&quot;orange&quot;, &quot;yellow&quot;, &quot;indigo&quot;, &quot;violet&quot;]
+
+# String === object is true for the two strings in the array
+&gt;&gt; miscellany = [75, &quot;hello&quot;, 10...20, &quot;goodbye&quot;]
+=&gt; [75, &quot;hello&quot;, 10...20, &quot;goodbye&quot;]
+&gt;&gt; miscellany.grep(String)
+=&gt; [&quot;hello&quot;, &quot;goodbye&quot;]
+&gt;&gt; miscellany.grep(50..100)
+=&gt; [75]
+</code></pre>
+<p>the statement <code>enumerable.grep(expression)</code> is functionally equivalent to this: <code>enumerable.select {|element| expression === element }</code></p>
+<pre><code class="language-Ruby">&gt;&gt; colors = %w(red orange yellow green blue indigo violet)
+=&gt; [&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;indigo&quot;, &quot;violet&quot;]
+&gt;&gt; colors.grep(/o/) {|color| color.capitalize }
+=&gt; [&quot;Orange&quot;, &quot;Yellow&quot;, &quot;Indigo&quot;, &quot;Violet&quot;]
+</code></pre>
+<p>thus operates in effect like this: 
+<code>enumerable.select {|item| expression === item}.map {|item| ... }</code></p>
+<h2 id="organizing-selection-results-with-group_by-and-partition"><a class="header" href="#organizing-selection-results-with-group_by-and-partition">Organizing selection results with group_by and partition</a></h2>
+<h3 id="group_by"><a class="header" href="#group_by"><code>#group_by</code></a></h3>
+<p>An operation on an enumerable object takes a <em>block</em> and returns a <em>hash</em>. The <em>block</em> is <strong>executed for each object</strong>. For <strong>each unique <em>block</em> return <code>value</code></strong>, the <strong>result <code>hash</code> gets a <code>key</code></strong>; the <code>value</code> for that <code>key</code> is an <em>array</em> of all the elements of the <em>enumerable</em> for which the <em>block</em> returned that <code>value</code>.</p>
+<pre><code class="language-Ruby">&gt;&gt; colors = %w(red orange yellow green blue indigo violet)
+=&gt; [&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;indigo&quot;, &quot;violet&quot;]
+&gt;&gt; colors.group_by {|color| color.size }
+=&gt; {3=&gt;[&quot;red&quot;], 6=&gt;[&quot;orange&quot;, &quot;yellow&quot;, &quot;indigo&quot;, &quot;violet&quot;], 5=&gt;[&quot;green&quot;], 4=&gt;[&quot;blue&quot;]}
+</code></pre>
+<p>The <em>block</em> <code>{|color| color.size }</code> returns an <em>integer</em> for each color. The <em>hash</em> returned by the entire <code>#group_by</code> operation is <em>keyed</em> to the various sizes <em><code>(3, 4, 5, 6)</code></em>, and the values are <em>arrays</em> containing all the <em>strings</em> from the original <em>array</em> that are of the <em>size</em> represented by the respective <em>keys</em>.</p>
+<h3 id="partition"><a class="header" href="#partition"><code>#partition</code></a></h3>
+<p>It splits the elements of the enumerable into two arrays based on whether the code block returns true/false order</p>
+<pre><code class="language-Ruby">&gt;&gt; colors.partition {|color| color.size &gt; 4 }
+=&gt; [[&quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;indigo&quot;, &quot;violet&quot;], [&quot;red&quot;, &quot;blue&quot;]]
+</code></pre>
+<pre><code class="language-Ruby">class Person
+  attr_accessor :age
+
+  def initialize(options)
+    self.age = options[:age]
+  end
+
+  def teenager?
+    (13..19).include?(age)
+  end
+end
+
+people = 10.step(25, 3).map { |i| Person.new(age: i) }
+</code></pre>
+<p>This code does an iteration from <em>10</em> to <em>25</em> in <em>steps</em> of <em>3</em> (10, 13, 16, 19, 22, 25), passing each of the <strong>values</strong> to the <strong>block</strong> in turn.
+Each time through, a new <code>Person</code> is created with the <em><code>age</code></em> corresponding to the increment.
+Thanks to <code>map</code>, the <em><code>person</code></em> objects are all accumulated into an <em>array</em>, which is assigned to <em><code>people</code></em>.
+If <code>each</code> use instead, this <em>value</em> will assigned to <em><code>people</code></em> <code>(10.step(25, 3))</code>.</p>
+<blockquote>
+<p>The <strong>chaining</strong> of the <em>iterator</em> <code>map</code> to the <em>iterator</em> <code>step</code> is made <strong>possible</strong> by the fact that <code>step</code> returns an <em><strong><code>enumerator</code></strong></em>. You’ll learn more about <em>enumerators</em> presently.</p>
+</blockquote>
+<pre><code class="language-Ruby">&gt;&gt; teens =  people.partition { |person| person.teenager? }
+=&gt; [[#&lt;Person:0x000001019d1a50 @age=13&gt;, #&lt;Person:0x000001019d19d8 @age=16&gt;, #&lt;Person:0x000001019d1988 @age=19&gt;], [#&lt;Person:0x000001019d1ac8 @age=10&gt;, #&lt;Person:0x000001019d1910 @age=22&gt;, #&lt;Person:0x000001019d1898 @age=25&gt;]]
+&gt;&gt; puts &quot;#{teens[0].size} teens; #{teens[1].size} non-teens&quot;
+=&gt; 3 teens; 3 non-teens
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="element-wise-enumerable-operations"><a class="header" href="#element-wise-enumerable-operations">Element-wise enumerable operations</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
